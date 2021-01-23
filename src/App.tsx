@@ -1,12 +1,18 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 import { SearchPage } from "./pages/SearchPage";
 
 const App: React.FC = () => {
   return (
-    <div>
-      <SearchPage />
-    </div>
+    <Router>
+      <div>
+        <Switch>
+          <Route exact path="/" component={SearchPage} />
+          {/* <Route component={NoMatch} /> */}
+        </Switch>
+      </div>
+    </Router>
   );
 };
 
