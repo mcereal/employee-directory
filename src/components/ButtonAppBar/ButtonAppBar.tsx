@@ -37,7 +37,9 @@ export function ButtonAppBar() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}></Typography>
+          <Typography variant="h6" className={classes.title}>
+            Employee Directory
+          </Typography>
           <Button color="inherit"></Button>
         </Toolbar>
       </AppBar>
