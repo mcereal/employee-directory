@@ -1,3 +1,4 @@
+import { ButtonAppBar } from "./components/ButtonAppBar/ButtonAppBar";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
@@ -8,6 +9,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <div>
+        <ButtonAppBar></ButtonAppBar>
         <Switch>
           <Route exact path="/" component={SearchPage} />
           <Route component={NoMatch} />
