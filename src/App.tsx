@@ -1,12 +1,13 @@
 import React from "react";
 import "./App.css";
+import { SearchPage } from "./pages/SearchPage";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header"></header>
+    <div>
+      <SearchPage />
     </div>
   );
-}
+};
 
 export default App;
