@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import { SearchPage } from "./pages/SearchPage";
+import { NoMatch } from "./pages/NoMatch/NoMatch";
+import { SearchPage } from "./pages/SearchPage/SearchPage";
 
 const App: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ const App: React.FC = () => {
       <div>
         <Switch>
           <Route exact path="/" component={SearchPage} />
-          {/* <Route component={NoMatch} /> */}
+          <Route component={NoMatch} />
         </Switch>
       </div>
     </Router>
