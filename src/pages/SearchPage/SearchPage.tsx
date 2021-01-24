@@ -19,34 +19,28 @@ export const SearchPage: React.FC<Props> = () => {
   const [employees, setEmployees] = useState(initialState);
 
   useEffect(() => {
-    for (let i = 0; i < 5; i++) {
-      API.search()
-        .then((res) => {
-          const { gender, email } = res;
-          const { first, last } = res.name;
-          const { large, medium, thumbnail } = res.picture;
-
-          console.log(first);
-
-          setEmployees({
-            ...employees,
-            employeeList: [
-              ...employees.employeeList,
-              {
-                gender,
-                employeeName: { first, last },
-                email,
-                picture: {
-                  large,
-                  medium,
-                  thumbnail,
-                },
+    API.search()
+      .then((res) => {
+        const { gender, email } = res;
+        const { first, last } = res.name;
+        const { large, medium, thumbnail } = res.picture;
+        setEmployees({
+          employeeList: [
+            ...employees.employeeList,
+            {
+              gender,
+              employeeName: { first, last },
+              email,
+              picture: {
+                large,
+                medium,
+                thumbnail,
               },
-            ],
-          });
-        })
-        .catch((err) => console.log(err));
-    }
+            },
+          ],
+        });
+      })
+      .catch((err) => console.log(err));
   }, []);
 
   return (
