@@ -1,6 +1,6 @@
 export interface EmployeeInfoModel {
   gender: string;
-  name: EmployeeName;
+  employeeName: EmployeeName;
   email: string;
   picture: EmployeePicture;
 }

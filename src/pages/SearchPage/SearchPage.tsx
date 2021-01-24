@@ -26,12 +26,15 @@ export const SearchPage: React.FC<Props> = () => {
           const { first, last } = res.name;
           const { large, medium, thumbnail } = res.picture;
 
+          console.log(first);
+
           setEmployees({
-            ...employees.employeeList,
+            ...employees,
             employeeList: [
+              ...employees.employeeList,
               {
                 gender,
-                name: { first, last },
+                employeeName: { first, last },
                 email,
                 picture: {
                   large,
@@ -41,7 +44,6 @@ export const SearchPage: React.FC<Props> = () => {
               },
             ],
           });
-          console.log(...employees.employeeList);
         })
         .catch((err) => console.log(err));
     }
@@ -49,8 +51,8 @@ export const SearchPage: React.FC<Props> = () => {
 
   return (
     <div>
-      {employees.employeeList.map((item) => (
-        <div>{item.name.first}</div>
+      {employees.employeeList.map((employee) => (
+        <div key={employee.email}>{employee.employeeName.first}</div>
       ))}
     </div>
   );
