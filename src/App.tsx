@@ -12,31 +12,34 @@ const App: React.FC = () => {
   const [employees, setEmployees] = useState(initialState);
 
   useEffect(() => {
-    API.getRandomEmployeeInfo()
-      .then((res) => {
-        res.forEach((employee: EmployeeInfoModel) => {
-          const { gender, email } = employee;
-          const { first, last } = employee.name;
-          const { large, medium, thumbnail } = employee.picture;
-          const newEmployee = employees.employeeList;
-          newEmployee.push({
-            gender,
-            name: { first, last },
-            email,
-            picture: {
-              large,
-              medium,
-              thumbnail,
-            },
-          });
-
-          setEmployees({
-            ...employees,
-            employeeList: newEmployee,
-          });
+    try {
+      const getEmployeeInfo = async () => {
+        const employeeInfoResponse = await API.getRandomEmployeeInfo();
+        setEmployees({
+          ...employees,
+          employeeList: employeeInfoResponse.map(
+            (employee: EmployeeInfoModel) => {
+              const { gender, email } = employee;
+              const { first, last } = employee.name;
+              const { large, medium, thumbnail } = employee.picture;
+              return {
+                gender,
+                name: { first, last },
+                email,
+                picture: {
+                  large,
+                  medium,
+                  thumbnail,
+                },
+              };
+            }
+          ),
         });
-      })
-      .catch((err) => console.log(err));
+      };
+      getEmployeeInfo();
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
   return (
     <Router>
