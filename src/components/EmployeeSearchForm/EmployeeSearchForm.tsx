@@ -20,16 +20,14 @@ export const EmployeeSearchForm: React.FC<Props> = () => {
     setinputState({ input: eventInput.target.value });
   };
   return (
-    <div>
-      <FormControl>
-        <TextField
-          value={inputState.input}
-          onChange={handleInputChange}
-          type="text"
-          placeholder="Enter a name"
-        />
-      </FormControl>
-    </div>
+    <FormControl>
+      <TextField
+        value={inputState.input}
+        onChange={handleInputChange}
+        type="text"
+        placeholder="Enter a name"
+      />
+    </FormControl>
   );
 };
 
