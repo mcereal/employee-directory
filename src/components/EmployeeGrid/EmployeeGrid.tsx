@@ -10,7 +10,7 @@ const EmployeeGrid: React.FC<Props> = () => {
   return (
     <div>
       {employeeList.map((employee) => (
-        <div key={employee.email}>{employee.employeeName.first}</div>
+        <div key={employee.email}>{employee.name.first}</div>
       ))}
     </div>
   );
