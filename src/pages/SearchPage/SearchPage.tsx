@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from "react";
 import EmployeeGrid from "../../components/EmployeeGrid/EmployeeGrid";
 import API from "../../utils/API";
-import { EmployeeInfoModel } from "./EmployeeInfoModel";
+import { initialState } from "./EmployeeState";
 import "./SearchPage.css";
 
 interface Props {
   text?: string;
-}
-
-const initialState: EmployeeState = {
-  employeeList: [],
-};
-
-interface EmployeeState {
-  employeeList: EmployeeInfoModel[];
 }
 
 export const SearchPage: React.FC<Props> = () => {
