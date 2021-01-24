@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import EmployeeGrid from "../../components/EmployeeGrid/EmployeeGrid";
 import API from "../../utils/API";
 import { EmployeeInfoModel } from "./EmployeeInfoModel";
 import "./SearchPage.css";
@@ -45,6 +46,7 @@ export const SearchPage: React.FC<Props> = () => {
 
   return (
     <div>
+      <EmployeeGrid></EmployeeGrid>
       {employees.employeeList.map((employee) => (
         <div key={employee.email}>{employee.employeeName.first}</div>
       ))}
