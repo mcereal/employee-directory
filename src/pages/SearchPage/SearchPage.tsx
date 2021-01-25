@@ -26,7 +26,7 @@ export const SearchPage: React.FC<Props> = () => {
   const handleInputChange = (
     eventInput: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setinputState({ input: eventInput.target.value });
+    setinputState({ input: eventInput.target.value.toLowerCase() });
   };
 
   useEffect(() => {
